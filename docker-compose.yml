@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" # Map React's dev server port
+    environment:
+      - CHOKIDAR_USEPOLLING=true # Optional for file watching in some environments
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    stdin_open: true # Allow debugging with interactive CLI
