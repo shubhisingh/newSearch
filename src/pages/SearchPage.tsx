@@ -59,7 +59,13 @@ const SearchPage: React.FC = () => {
             </header>
             <Filters filters={filters} onFilterChange={handleFilterChange} />
             <SearchBar onSearch={(term) => setSearchTerm(term)} />
-            <div>
+            <div style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                    gap: "16px",
+                    justifyItems: "center",
+                }}
+            >
                 {filteredArticles.length > 0 ? (
                     filteredArticles.map((article: any, index: number) => (
                         <ArticleCard
